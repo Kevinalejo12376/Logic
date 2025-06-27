@@ -1,0 +1,9 @@
+*{
+    margin:5%;
+    padding: 0;
+}
+
+.container_general{
+    background-color: gray;
+    color: brown;
+}
