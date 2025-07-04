@@ -206,3 +206,58 @@ if inicio == "si":
 else:
     print("Juego cancelado :(")
     print("Tal vez la próxima vez. ¡Hasta luego!")
+
+
+
+
+
+
+
+
+
+
+    if comodinesUsados < 3:
+                            match comodinRes:
+                                case 1:
+                                    # Comodín de llamar a un amigo
+                                    if comodinesUsado1 == 0:
+                                        print("\nHas elegido: Llamar a un amigo. Dame un momento...")
+                                        print("\nLlamando a un amigo...\n.....")
+                                        RandomAmigo = random.choice(["a", "b", "c", "d"])
+                                        print(f"\nTu amigo cree que la respuesta correcta es la '{RandomAmigo}'")
+                                        comodinesUsado1 += 1
+                                        comodinesUsados += comodinesUsado1
+                                        comodinesDisponibles.update({1: 'Llamar a un amigo (Ya usado)'})
+                                    elif comodinesUsado1 > 0:
+                                        print("\nYa has usado el comodín de llamar a un amigo.")
+                                case 2:
+                                    # Comodín 50/50
+                                    print("Has elegido el comodín 50/50")
+                                    if comodinesUsado2 == 0:
+                                        # Primero buscamos la opción correcta
+                                        opcion_correcta = None
+                                        opciones_incorrectas = []
+                                        for op in Opciones:
+                                            if op[0] == ResCorrect:
+                                                opcion_correcta = op
+                                            elif op[0] in ['a', 'b', 'c', 'd']:
+                                                opciones_incorrectas.append(op)
+                                        # Elegimos una incorrecta al azar
+                                        opcion_incorrecta = random.choice(opciones_incorrectas)
+                                        # Mostramos solo la correcta y una incorrecta
+                                        print("\nLas opciones que quedan son:")
+                                        print(opcion_correcta)
+                                        print(opcion_incorrecta)
+                                    comodinesUsado2 += 1
+                                    comodinesUsados += comodinesUsado2
+                                    comodinesDisponibles.pop(2)
+                                case 3:
+                                    # Comodín cambiar de pregunta
+                                    print("\nHas elegido el comodín cambiar de pregunta.")
+                                    comodinesUsado3 += 1
+                                    comodinesUsados += comodinesUsado3
+                                    comodinesDisponibles.pop(3)
+                                case _:
+                                    print("Error: opción de comodín no válida.")
+                        else:
+                            print("Ya has usado todos los comodines.")
